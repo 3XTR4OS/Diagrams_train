@@ -6,9 +6,9 @@ from diagrams.onprem.database import PostgreSQL  # Would typically use RDS from 
 from diagrams.onprem.inmemory import Redis  # Would typically use ElastiCache from aws.database
 
 with Diagram("New_diagram") as diag:
-    """Diagram автоматически создаёт, открывает и сохраняет диаграмму.
-    (даже если код пуст и нигде не вызывается)"""
-    # Каждый созданный объект добавляется "сверху".
+   """Diagram automatically creates, opens and saves a diagram.
+    (even if the code is empty and is not called anywhere)"""
+    # Each created object is added "from above".
     dns = Route53("dns")  # Значок с надписью 53
     load_balancer = ELB("load_balancer")
     data_base = PostgreSQL("PostGreSql")
@@ -24,5 +24,5 @@ with Diagram("New_diagram") as diag:
                      ]
     # --------------------------------------------
     dns >> load_balancer >> svc_group >> redis >> data_base
-
-    # двойные стрелки ">>" связывают два созданных объекта на диаграмме стрелочкой
+    # double arrows ">>" link two created objects in the diagram with an arrow
+    
